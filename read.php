@@ -11,6 +11,7 @@ $file = fopen("posts.csv", "r");
 <head>
   <meta charset="UTF-8">
   <title>投稿一覧</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>📝 投稿一覧</h1>
