@@ -35,11 +35,17 @@ if (($file = fopen("posts.csv", "r")) !== false) {
       </thead>
       <tbody>
         <?php if (!empty($rows)): ?>
-          <?php foreach ($rows as $rows): ?>
+          <?php foreach ($rows as $index => $rows): ?>
             <tr>
               <?php foreach ($rows as $cell): ?>
                 <td><?= htmlspecialchars($cell, ENT_QUOTES, 'UTF-8') ?></td>
               <?php endforeach; ?>
+              <td>
+                <form method="post" action="delete.php" onsubmit="return confirm('本当に削除しますか？');">
+                  <input type="hidden" name="index" value="<?= $index ?>">
+                  <button type="submit">削除</button>
+                </form>
+              </td>
             </tr>
           <?php endforeach; ?>
         <?php else: ?>
